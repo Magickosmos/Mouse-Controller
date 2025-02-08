@@ -12,7 +12,6 @@ def on_click(x, y, button, pressed):
         x, y = pyautogui.position()
         row = [x , y]
         Mouse_Pose.append(row)
-        print(Mouse_Pose)
 
 def on_press(key):
     try:
@@ -20,6 +19,8 @@ def on_press(key):
             for element in Mouse_Pose:
                 x, y = element
                 pyautogui.moveTo(x, y)
+                pyautogui.click()
+                Mouse_Pose.pop()
     except: 
         pass
         
