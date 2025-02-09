@@ -7,12 +7,14 @@ from pynput import keyboard
 
 Mouse_Pose = []
 
+#Records the mouse position every time the user clicks and stoes in Mouse_Pose
 def on_click(x, y, button, pressed):
     if pressed:
         x, y = pyautogui.position()
-        row = [x , y]
+        row = [x , y] 
         Mouse_Pose.append(row)
 
+#Pressing the button p will play back all the mouse clicks recroded by the program
 def on_press(key):
     try:
         if key.char == 'p':
