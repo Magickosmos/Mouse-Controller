@@ -22,7 +22,7 @@ def on_press(key):
                 x, y = element
                 pyautogui.moveTo(x, y)
                 pyautogui.click()
-                Mouse_Pose.pop()
+                Mouse_Pose.pop() #will rerecord clicks and cause infinite looping if not present
     except: 
         pass
         
