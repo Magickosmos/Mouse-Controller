@@ -5,6 +5,7 @@ from PIL import ImageGrab
 import time
 
 color = []
+searchedColor = []
 
 # Function to find the pixel with the target color
 def find_color(color):
@@ -12,8 +13,8 @@ def find_color(color):
     screen_width, screen_height = screen.size
 
     # Loop through all pixels to find the target color
-    for x in range(screen_width):
-        for y in range(screen_height):
+    for x in range(0, screen_width, 10):
+        for y in range(0, screen_height, 10):
             pixel_color = screen.getpixel((x, y))
             if pixel_color == color:
                 return (x, y)
@@ -28,13 +29,14 @@ def on_click(x, y, button, pressed):
 def on_press(key):
     try:
         if key.char == 'p':
-            time.sleep(2)
-            color_position = find_color(color.pop())
+            color_position = find_color(searchedColor[-1])
             if color_position:
                 pyautogui.click(color_position)  # Click the position of the found color
                 print(f"Clicked on color at position: {color_position}")
             else:
                 print("Color not found on the screen.")
+        if key.char == 'l':
+            searchedColor.append(color[-1])
     except: 
         pass
 
