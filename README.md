@@ -7,4 +7,5 @@ Color Clicker clicks the first instance of a color when you press "p". To select
 Requires the following libraries:
 
 pip install pyautogui
+
 pip install pynput
